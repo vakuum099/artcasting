@@ -1,0 +1,852 @@
+/* ****************** strat of general part ****************** */
+body{
+    --light-greyish-green:#F4FAF9;
+    --light-green:#E0F9F3;
+    --dark-green:#57B9A1;
+    --green:#68CBB3;
+    --greyish-green:#95D1C5;
+    --middle-greyish-green:#B0E9DD;
+
+    --light-purple:#9C6AA3;
+    --purple:#7C4D82;
+
+    --white:#FFF;
+    --dark-white:#F1F1F1;
+
+    --red:#D91A3C;
+
+    --grey-5:#E0E0E0;
+    --dark-grey:#383838;
+    --black:#2D2F2E;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+h1,h2,p,a {
+    font-family: "PF Highway Sans Pro";
+}
+
+p,a,div {
+    font-weight: 400;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color:var(--black);
+}
+
+h1,p {
+    color:var(--dark-grey);
+}
+
+h1 {
+    font-size:30px;
+    font-weight:100;
+    padding: 1em 0px 0.5em 20px;
+    margin:0;
+}
+
+.button{
+    box-sizing: border-box;
+    display:block;
+    text-align: center;
+/*    max-width: 100%;*/
+    padding: 13px 0;
+    border-radius:5px;
+    letter-spacing: 0.05em;
+}
+
+/* ****************** end of general part ****************** */
+
+/* ******************start of header part ****************** */
+
+nav > a,
+.enter > span {
+    display: none;
+}
+
+.white-box {
+    width: 100vw;
+    height: 10px;
+    position: absolute;
+    top:40px;
+    left:0;
+    box-shadow: 0px 8px 16px #00000015;
+}
+
+header {
+    padding: 10px 20px 20px 20px;
+    display: grid;
+    grid-template-areas: 'navMenu logo enter'
+    '. . .'
+    'buttonGold buttonGold buttonGold'
+    'buttonCasting buttonCasting buttonCasting';
+    justify-content: space-between;
+    align-content: center;
+    row-gap: 0.5rem;
+}
+
+.st0 {
+    fill:none;
+    stroke:#68CBB3;
+    stroke-miterlimit:10;
+}
+
+.st1{
+    fill:none;
+    stroke:#383838;
+    stroke-miterlimit:10;
+}
+
+nav,
+.enter {
+    height: 17px;
+    align-self: center;
+}
+
+.enter {
+    width: 14px;
+    grid-area: enter;
+    justify-self: right;
+}
+
+nav {
+    width: 24px;
+    grid-area: navMenu;
+}
+
+header > img {
+    grid-area: logo;
+}
+
+.button-gold{
+    background-color: var(--green);
+    grid-area: buttonGold;
+    color: var(--white);
+    font-size: 12px;
+}
+
+.button-gold:hover {
+    background-color: var(--dark-green);
+}
+
+.button-casting {
+    background-color: var(--white);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--green);
+    color: var(--dark-grey);
+    grid-area: buttonCasting;
+    font-size: 12px;
+}
+
+.button-casting:hover {
+    color: var(--green);
+}
+
+/* ******************end of header part ****************** */
+
+/* ******************start of mobile-menu part ****************** */
+
+.mobile-menu {
+    display:none;
+    margin:0;
+    padding:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark-grey);
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: 10;
+}
+
+.mobile-menu > div,
+.mobile-menu > ul {
+    box-sizing: border-box;
+    padding:0;
+    margin: 40px;
+}
+
+.mobile-menu > ul {
+    list-style-type: none;
+}
+
+div.logo {
+    margin-top:8px;
+    display:flex;
+    justify-content: space-between;
+    align-content: space-between;
+
+}
+
+div.logo > svg {
+    align-self: center;
+}
+
+div.nav {
+    height: 160px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.buttons > a {
+    margin: 5px 0;
+}
+
+.buttons > .button-casting {
+    background-color: var(--dark-grey);
+    color:var(--white);
+}
+
+.social-media {
+    display: flex;
+    justify-content: space-between;
+    width:250px;
+}
+
+.social-media > li {
+    width:44px;
+    height:44px;
+}
+
+.nav > a {
+    color: var(--white);
+    font-size:14px;
+    letter-spacing: 0.05em;
+}
+
+.cross {
+    width:18px;
+    height:18px;
+}
+
+.cross > rect {
+    fill:white;
+}
+
+.mobile-menu .enter {
+    width:14px;
+    height:17px;
+}
+
+/* ******************end of mobile-menu part ****************** */
+
+/* ******************start of filter part ****************** */
+
+form {
+    margin: 20px;
+    display: grid;
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-areas: 
+    'casting casting'
+    'sex sex'
+    'age age'
+    'inputtext inputtext'
+    'morefilters search'
+    'morehide morehide';
+}
+
+.castingfilter {
+    grid-area:casting;
+}
+
+.sexfilter {
+    grid-area:sex;
+}
+
+
+.agefilter {
+    grid-area:age;
+}
+.agefilter label{
+    display:block;
+}
+
+.inputtext {
+    background-image: url(./media/searchgrey.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 15px;
+    grid-area:inputtext;
+    border-color:red
+}
+
+.inputtext:focus {
+    outline: none;
+    background-image: url(./media/search.svg);
+}
+
+.inputtext:scope {
+    border-color: #D91A3C;
+}
+
+.inputtext:hover {
+    border-color: var(--green);
+}
+form>div.morefilters {
+    grid-area:morefilters;
+    border-color: var(--green);
+    padding:0;
+    display:flex;
+    align-items: center;
+    flex:1;
+    justify-content: space-around;
+    max-height: 40px;
+
+}
+
+form>div.morefilters svg{
+    align-self: center;
+}
+
+
+.morefilters p {
+    font-size: 12px;
+    margin:0;
+}
+
+.search{
+    grid-area:search;
+    max-height: 40px;
+    flex:1;
+}
+.morefiltershide {
+    grid-area: morehide;
+}
+
+.morefilters > svg {
+    stroke-linejoin:round;
+    stroke-width:2;
+    stroke:var(--green);
+}
+
+.sexfilter path {
+    stroke-linejoin:round;
+    stroke:#D91A3C
+}
+
+form .button,
+input[button] {
+    padding: 10px 10px;
+    border: solid;
+    font-family: "PF Highway Sans Pro";
+    border-color:var(--grey-5);
+    border-width: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+input.search {
+    border-style: none;
+}
+
+.castingfilterhide,
+.sexfilterhide,
+.agefilterhide{
+    border-top: solid;
+    border-color:var(--green);
+    border-width: 1px;
+    padding-top: 15px;
+    margin:0;
+    font-size: 14px;
+    display:none;
+    text-align: left;
+    width:100%;
+}
+
+.sexfilterhide label{
+    display: block;
+}
+
+input[type=radio],
+input[type=checkbox] {
+    display:none;
+}
+
+label[for=variant2]{
+    color:var(--green);
+}
+
+
+.castingfilterhide div>svg{
+    vertical-align: baseline;
+    height:14px;
+    width:14px;
+}
+
+.castingfilterhide svg>rect,
+.morefiltershide svg>rect{
+    stroke:var(--grey-5);
+}
+
+
+/* ******************end of filter part ****************** */
+.banner {
+    display:flex;
+    flex-flow: column;
+}
+
+/* ******************start of banner part****************** */
+
+.banner {
+    background-color: var(--greyish-green);
+    overflow: hidden;
+    margin:0;
+    padding:20px;
+    display: flex;
+}
+
+.banner picture {
+    align-self: center;
+}
+
+
+.button-banner {
+    font-size: 14px;
+    background-color: var(--white);
+    color:var(--green);
+}
+
+.button-banner:hover {
+    background-color: var(--dark-white);
+}
+
+.banner h2,
+.banner p {
+    color: var(--white);
+}
+
+.banner h2{
+    font-size: 36px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.banner p {
+    font-size: 18px;
+}
+
+.banner-slider {
+    box-sizing: border-box;
+    display: flex;
+    width:157px;
+    height:40px;
+    margin: 15px auto;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.banner-slider svg {
+
+    align-self: center;
+}
+
+.banner-slider svg circle {
+    text-align: center;
+    fill:var(--white);
+    fill-opacity:0.35;
+}
+
+.banner-slider>div+svg circle{
+    fill-opacity:1;
+}
+
+.left-banner-button circle,
+.right-banner-button circle {
+    stroke:var(--middle-greyish-green);
+}
+
+
+.left-banner-button path,
+.right-banner-button path {
+    stroke-linejoin:round;
+    stroke-width:2;
+    stroke:var(--white);
+}
+
+
+
+/* ******************end of banner part ****************** */
+
+
+
+/* ******************start of casting part ****************** */
+
+.casting {
+    background-color: var(--light-greyish-green);
+}
+
+.actorsCards {
+    display:flex;
+    list-style-type: none;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    padding: 0px 0px 40px 10px;
+}
+
+.actorsCards > li {
+    height: 286px;
+    flex: 0 0 135px;
+    margin-left: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.actorsCards img {
+    width:135px;
+
+    position:relative;
+    top: -16px;
+}
+
+.actorsCards div {
+    display:flex;
+    padding: 5px 10px 15px 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--white);
+    position:relative;
+    height:136px;
+    top: -42px;
+}
+
+.actorsCards div p {
+    padding: 0;
+    margin:  0;
+    font-size: 14px;
+}
+
+.actorsCards div :nth-child(1) {
+    min-height: 4em;
+}
+
+.actorsCards div :nth-child(2) {
+    justify-self: center;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.wildcard {
+    overflow: hidden;
+    transform: translate(165px,-326px);
+    height: 286px;
+    width:135px;
+    background-color: var(--purple);
+    border-radius: 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.forwildcard {
+    height:0px;
+}
+
+.wildcard svg {
+    stroke-linejoin:round;
+    stroke-width:2;
+    stroke:var(--white);
+    align-self: center;
+}
+
+.wildcard svg circle{
+    fill:#7C4D82;
+    stroke:#9C6AA3;
+    width:50px;
+    height:50px;
+}
+
+.wildcard p {
+    text-transform: uppercase;
+    color:var(--white);
+    text-align: center;
+}
+
+.leftArrow,
+.rightArrow {
+    display:none;
+}
+
+/* ****************** end of casting part ****************** */
+
+
+
+
+@media only screen and (min-width: 768px){
+
+/* ****************** header ****************** */
+
+header {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+nav {
+    margin-top:20px;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav > a {
+    display: block;
+}
+
+.enter {
+    height: auto;
+    width: auto;
+}
+
+.enter > span{
+    display: block;
+    font-size:12px;
+}
+
+.enter svg,
+nav > svg {
+    display:none;
+}
+
+.button-gold,
+.button-casting {
+    font-size:12px;
+    width: unset;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.white-box {
+    top:107px;
+}
+
+/* ****************** end of header ****************** */
+
+/* ****************** filters ****************** */
+form {
+    grid-template-areas: 
+    'casting sex inputtext inputtext'
+    'age morefilters search .'
+    'morehide morehide morehide morehide';
+}
+
+.inputtext {
+    max-height: 40px;
+}
+
+.button > div {
+    background-color: var(--white);
+}
+
+.search {
+    width: 100%;
+}
+
+.castingfilterhide{
+    background-color: var(--white);
+}
+
+/* ****************** end of filters ****************** */
+
+/* ****************** end of banner ****************** */
+.banner  {
+    padding:0;
+    flex-direction: row;
+    position:relative;
+    top:0px;
+    left:0px;
+    justify-content: space-around;
+}
+
+.banner picture {
+    position: relative;
+    top:4px;
+    height: 105%;
+    width: auto;
+}
+
+.button-banner {
+    height: 43px;
+    width: 168px;
+}
+
+.text-banner {
+    width:40%;
+}
+
+.text-banner > p {
+    min-height:44px;
+}
+
+.banner-slider {
+    display: flex;
+    position:absolute;
+    left: 42%;
+    bottom: 20px;
+}
+/*
+.banner-slider > svg {
+    fill:none;
+}*/
+
+/* ****************** end of banner ****************** */
+
+/* ****************** start of casting ****************** */
+
+.actorsCards > li {
+    height: 338px;
+    flex: 0 0 175px;
+}
+
+.actorsCards img {
+    width:175px;
+    position: static;
+}
+
+.actorsCards div {
+    display:flex;
+    padding: 5px 10px 15px 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--white);
+    position:static;
+    height:88px;
+}
+
+.actorsCards div :nth-child(1) {
+    min-height: 2em;
+    font-size: 16px;
+}
+
+.actorsCards div :nth-child(2) {
+    justify-self: center;
+    font-weight: 100;
+}
+
+.wildcard {
+    transform: translate(575px,-378px);
+    top:-378px;
+    left:575px;
+    height: 338px;
+    width:175px;
+}
+
+/* ****************** end of casting ****************** */
+
+}
+
+
+@media only screen and (min-width: 1440px){
+
+/* ****************** start of header ****************** */
+
+header {
+    padding: 20px 150px 30px;
+}
+
+.white-box{
+    top:135px;
+}
+
+/* ****************** end of header ****************** */
+
+
+/* ****************** start of filter ****************** */
+form {
+    grid-template-areas: 
+    'casting sex inputtext inputtext age morefilters search'
+    '. . . . . morehide .';
+    padding: 0 130px;
+}
+
+/* ****************** end of filter ****************** */
+
+/* ****************** start of banner ****************** */
+.banner {
+    padding: 0 150px;
+    justify-content: space-between;
+}
+   
+/* ****************** end of banner ****************** */
+
+
+
+/* ****************** start of casting ****************** */
+
+.casting {
+    padding-left: 140px;
+    padding-right: 150px;
+}
+
+.actorsCards > li {
+    height: 346px;
+    flex: 0 0 182px;
+}
+
+.actorsCards img {
+    width:182px;
+    position: static;
+}
+
+.actorsCards div {
+    display:flex;
+    padding: 5px 10px 15px 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--white);
+    position:static;
+    height:118px;
+}
+
+.actorsCards div :nth-child(1) {
+    min-height: 2em;
+    font-size: 16px;
+}
+
+.actorsCards div :nth-child(2) {
+    justify-self: center;
+    font-weight: 100;
+}
+
+.wildcard {
+    transform: translate(1120px,-547px);
+    top:-378px;
+    left:575px;
+    height: 346px;
+    width:182px;
+}
+
+
+
+/* ****************** end of casting ****************** */
+
+.leftArrow {
+    position: relative;
+    top:-326px;
+    left:165px;
+    height: 42px;
+    width:42px;
+}
+
+    div.casting {
+        height:629px;
+    }
+
+    ul.actorsCards>li {
+        width:182px;
+        height:346px;
+    }
+}
+

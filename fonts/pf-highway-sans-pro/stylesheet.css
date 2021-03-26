@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'PF Highway Sans Pro';
+    src: url('PFHighwaySansPro-Thin.eot');
+    src: local('PFHighwaySansPro-Thin'),
+        url('PFHighwaySansPro-Thin.eot?#iefix') format('embedded-opentype'),
+        url('PFHighwaySansPro-Thin.woff2') format('woff2'),
+        url('PFHighwaySansPro-Thin.woff') format('woff'),
+        url('PFHighwaySansPro-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Highway Sans Pro';
+    src: url('PFHighwaySansPro-Regular.eot');
+    src: local('PFHighwaySansPro-Regular'),
+        url('PFHighwaySansPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('PFHighwaySansPro-Regular.woff2') format('woff2'),
+        url('PFHighwaySansPro-Regular.woff') format('woff'),
+        url('PFHighwaySansPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Highway Sans Pro';
+    src: url('PFHighwaySansPro-Bold.eot');
+    src: local('PFHighwaySansPro-Bold'),
+        url('PFHighwaySansPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('PFHighwaySansPro-Bold.woff2') format('woff2'),
+        url('PFHighwaySansPro-Bold.woff') format('woff'),
+        url('PFHighwaySansPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
