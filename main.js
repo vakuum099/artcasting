@@ -1,36 +1,36 @@
 'use strict'
 
 //filter buttons
-
 const filterHide=[
     ['.castingfilter', '.castingfilterhide'],
     ['.sexfilter', '.sexfilterhide'],
-    ['.agefilter', '.agefilterhide']//,
- //   ['.morefilters', '.morefiltershide']
+    ['.agefilter', '.agefilterhide'],
+    ['.morefilters', '.morefiltershide']
 ];
 
 filterHide.forEach(e=>toggleViewHover(e)); 
 
 function toggleViewHover(ar){
     document.querySelector(ar[0]).addEventListener('mouseover', ()=> {
+document.querySelector(ar[0]).style.maxHeight="100%";
+        document.querySelector(ar[0]).style.zIndex='11';
         document.querySelector(ar[1]).style.display='block';
     });
     document.querySelector(ar[0]).addEventListener('mouseout', ()=> {
+        document.querySelector(ar[0]).style.maxHeight="40px";
         document.querySelector(ar[1]).style.display='none';
     });
 }
 
-document.querySelector('.morefilters').addEventListener('mouseover', ()=> document.querySelector('.morefiltershide').style.display='grid');
-document.querySelector('.morefilters').addEventListener('mouseout', ()=> document.querySelector('.morefiltershide').style.display='none');
 
 
 //mobile-menu
-
 document.querySelector('nav>svg').addEventListener("mouseup", ()=> document.querySelector('.mobile-menu').style.display='block');
 document.querySelector('div.logo>svg').addEventListener("mouseup", ()=> document.querySelector('.mobile-menu').style.display='none');
 
-//filter sex
 
+
+//filter sex
 document.querySelector('.sexfilterhide').addEventListener('mouseup', (e)=>setColorForTarget(e,'#383838','#68CBB3'));
 
 function setColorForTarget(el, defaultColor, targetColor){
@@ -42,8 +42,9 @@ function setColorForTarget(el, defaultColor, targetColor){
     el.target.style.color = targetColor;
 }
 
-//banner slider hover
 
+
+//banner slider hover
 bannerSliderHover('.left-banner-button','#fff', '#B0E9DD');
 bannerSliderHover('.right-banner-button','#fff', '#B0E9DD');
 
@@ -55,6 +56,8 @@ function bannerSliderHover(button, colorIn, colorOut){
     e.target.parentNode.childNodes[1].style.stroke=colorOut : 
     e.target.parentNode.childNodes[1].childNodes[1].style.stroke=colorOut);
 }
+
+
 
 //banner slider carousel
 let temp=[];
@@ -94,6 +97,7 @@ document.querySelector('.left-banner-button').addEventListener("mouseup", ()=>ba
 document.querySelector('.right-banner-button').addEventListener("mouseup", ()=> banner.right() );
 
 
+
 //casting carousel
 let container=document.querySelector('.actorsCards');
 
@@ -119,25 +123,24 @@ function downMeasure(e){
 function castingMove(e){
     let xDown = e.clientX;
 
-    console.log(trackXDown, xDown, Math.abs(trackXDown-xDown)>120, trackXDown>xDown ? "castingMoveRight" : "castingMoveLeft");
+    //console.log(trackXDown, xDown, Math.abs(trackXDown-xDown)>120, trackXDown>xDown ? "castingMoveRight" : "castingMoveLeft");
     if (Math.abs(trackXDown-xDown)>120){
         let count = Math.ceil(Math.abs((trackXDown-xDown)/140));
         let callback = trackXDown>xDown ? castingMoveLeft : castingMoveRight;
         for (let i = 0; i <count; i++){
-                console.log('move!');
+               // console.log('move!');
                 callback();
         }
     }
 }
 
 
-//custom checkbox <div class="checkbox">
 
+//custom checkbox <div class="checkbox">
 document.querySelectorAll('div.checkbox').forEach(e=>e.addEventListener("mouseover", checkboxIn));
 document.querySelectorAll('div.checkbox').forEach(e=>e.addEventListener("mouseout", checkboxOut));
 document.querySelectorAll('div.checkbox').forEach(e=>e.addEventListener("mouseup", checkboxClick));
 document.querySelectorAll('div.checkbox').forEach(e=>e.addEventListener("change", checkboxClick));
-
 
 function checkboxClick(e){
     const container = findContainerCheckbox(e);
@@ -177,8 +180,9 @@ function checkboxHover(e,color){
         checkForCheck(container);
 }
 
-// input search
 
+
+// input search
 let inp = document.querySelector('.inputtext');
 
 inp.addEventListener('change', inputHandler);
@@ -188,3 +192,20 @@ function inputHandler(){
 }
 
 
+
+//leftarrow, rightarrow
+document.querySelector('.leftArrow').addEventListener('mouseover', e=> setColor(arrowTarget(e),"#68CBB3"));
+document.querySelector('.leftArrow').addEventListener('mouseout', e=> setColor(arrowTarget(e),"#383838"));
+document.querySelector('.rightArrow').addEventListener('mouseover', e=> setColor(arrowTarget(e),"#68CBB3"));
+document.querySelector('.rightArrow').addEventListener('mouseout', e=> setColor(arrowTarget(e),"#383838"));
+
+function arrowTarget(e){
+    return e.target.tagName === 'svg' ? e.target.childNodes[3] :  e.target.parentNode.childNodes[3];
+}
+
+function setColor(e,color){
+    e.style.stroke = color;
+}
+//for arrow click use casting carousel functions
+document.querySelector('.leftArrow').addEventListener('mousedown', castingMoveLeft);
+document.querySelector('.rightArrow').addEventListener('mousedown', castingMoveRight);

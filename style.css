@@ -18,6 +18,8 @@ body{
     --grey-5:#E0E0E0;
     --dark-grey:#383838;
     --black:#2D2F2E;
+    --black-shadow:#00000015;
+    --black-shadow-2:#0000003F;
 }
 
 body{
@@ -58,7 +60,7 @@ h1 {
     box-sizing: border-box;
     display:block;
     text-align: center;
-/*    max-width: 100%;*/
+    max-height: 40px;
     padding: 13px 0;
     border-radius:5px;
     letter-spacing: 0.05em;
@@ -79,7 +81,7 @@ nav > a,
     position: absolute;
     top:40px;
     left:0;
-    box-shadow: 0px 8px 16px #00000015;
+    box-shadow: 0px 8px 16px var(--black-shadow);
 }
 
 header {
@@ -96,13 +98,13 @@ header {
 
 .st0 {
     fill:none;
-    stroke:#68CBB3;
+    stroke:var(--green);
     stroke-miterlimit:10;
 }
 
 .st1{
     fill:none;
-    stroke:#383838;
+    stroke:(var(--dark-grey));
     stroke-miterlimit:10;
 }
 
@@ -128,6 +130,7 @@ header > img {
 }
 
 .button-gold{
+    
     background-color: var(--green);
     grid-area: buttonGold;
     color: var(--white);
@@ -244,6 +247,7 @@ div.nav {
 /* ******************start of filter part ****************** */
 
 form {
+
     margin: 20px;
     display: grid;
     row-gap: 10px;
@@ -256,6 +260,8 @@ form {
     'morefilters search'
     'morehide morehide';
 }
+
+
 
 .castingfilter {
     grid-area:casting;
@@ -288,7 +294,7 @@ form {
 }
 
 .inputtext:scope {
-    border-color: #D91A3C;
+    border-color: var(--red);
 }
 
 .inputtext:hover {
@@ -301,7 +307,7 @@ form>div.morefilters {
     display:flex;
     align-items: center;
     flex:1;
-    justify-content: space-around;
+    justify-content: center;
     max-height: 40px;
 
 }
@@ -317,11 +323,14 @@ form>div.morefilters svg{
 }
 
 .search{
+    padding-left:auto;
+    padding-right:auto;
     grid-area:search;
     max-height: 40px;
     flex:1;
 }
 .morefiltershide {
+    display:none;
     grid-area: morehide;
 }
 
@@ -333,7 +342,7 @@ form>div.morefilters svg{
 
 .sexfilter path {
     stroke-linejoin:round;
-    stroke:#D91A3C
+    stroke:var(--red)
 }
 
 form .button,
@@ -409,6 +418,7 @@ label[for=variant2]{
 
 .banner picture {
     align-self: center;
+    z-index: 2;
 }
 
 
@@ -488,6 +498,10 @@ label[for=variant2]{
     background-color: var(--light-greyish-green);
 }
 
+.castingstring {
+    display:flex;
+}
+
 .actorsCards {
     display:flex;
     list-style-type: none;
@@ -539,19 +553,16 @@ label[for=variant2]{
 }
 
 .wildcard {
-    overflow: hidden;
-    transform: translate(165px,-326px);
-    height: 286px;
-    width:135px;
-    background-color: var(--purple);
-    border-radius: 5px;
     display:flex;
     flex-direction: column;
     justify-content: center;
-}
+    flex-shrink: 0;
+    background-color: var(--purple);
+    border-radius: 5px;
+    height: 286px;
+    width:135px;
 
-.forwildcard {
-    height:0px;
+
 }
 
 .wildcard svg {
@@ -562,8 +573,8 @@ label[for=variant2]{
 }
 
 .wildcard svg circle{
-    fill:#7C4D82;
-    stroke:#9C6AA3;
+    fill:var(--purple);
+    stroke:var(--light-purple);
     width:50px;
     height:50px;
 }
@@ -736,9 +747,6 @@ form {
 }
 
 .wildcard {
-    transform: translate(575px,-378px);
-    top:-378px;
-    left:575px;
     height: 338px;
     width:175px;
 }
@@ -753,12 +761,15 @@ form {
 /* ****************** start of header ****************** */
 
 header {
+
     padding: 20px 150px 30px;
+
 }
 
 .white-box{
     top:135px;
 }
+
 
 /* ****************** end of header ****************** */
 
@@ -768,7 +779,7 @@ form {
     grid-template-areas: 
     'casting sex inputtext inputtext age morefilters search'
     '. . . . . morehide .';
-    padding: 0 130px;
+    padding: 0 140px;
 }
 
 /* ****************** end of filter ****************** */
@@ -778,7 +789,15 @@ form {
     padding: 0 150px;
     justify-content: space-between;
 }
+
+.banner-slider {
+    width:137px;
+}
    
+.banner img {
+    position: static;
+}
+
 /* ****************** end of banner ****************** */
 
 
@@ -790,6 +809,12 @@ form {
     padding-right: 150px;
 }
 
+.castingstring {
+    position: relative;
+    top:0px;
+    left:0px;
+}
+
 .actorsCards > li {
     height: 346px;
     flex: 0 0 182px;
@@ -797,7 +822,6 @@ form {
 
 .actorsCards img {
     width:182px;
-    position: static;
 }
 
 .actorsCards div {
@@ -807,46 +831,62 @@ form {
     justify-content: space-between;
     background-color: var(--white);
     position:static;
-    height:118px;
+    height:92px;
 }
 
 .actorsCards div :nth-child(1) {
     min-height: 2em;
-    font-size: 16px;
 }
 
 .actorsCards div :nth-child(2) {
+    font-size: 14px;
     justify-self: center;
     font-weight: 100;
 }
 
-.wildcard {
-    transform: translate(1120px,-547px);
-    top:-378px;
-    left:575px;
-    height: 346px;
+.leftArrow,
+.rightArrow {
+    z-index:10;
+    display: block;
+    position: absolute;
+    top:152px;
+    height: 42px;
+    width:42px;
+    border-radius:50%;
+    box-shadow: 0px 4px 4px var(--black-shadow-2);
+}
+
+.rightArrow {
+    right:-21px;
+}
+
+.leftArrow path,
+.rightArrow path {
+    fill:none;
+    stroke-linejoin:round;
+    stroke-width:2;
+    stroke:var(--dark-grey);
+}
+
+div.casting {
+    height:629px;
+}
+
+.wildcard,
+ul.actorsCards>li {
+    height:346px;
     width:182px;
 }
 
+.wildcard {
+    padding-right: 0;
+}
+
+ul.actorsCards>li {
+    border-color: var(--green);
+}
 
 
 /* ****************** end of casting ****************** */
 
-.leftArrow {
-    position: relative;
-    top:-326px;
-    left:165px;
-    height: 42px;
-    width:42px;
 }
-
-    div.casting {
-        height:629px;
-    }
-
-    ul.actorsCards>li {
-        width:182px;
-        height:346px;
-    }
-}
-
