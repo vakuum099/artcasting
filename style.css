@@ -57,6 +57,7 @@ h1 {
 }
 
 .button{
+    padding:10px;
     box-sizing: border-box;
     display:block;
     text-align: center;
@@ -89,12 +90,21 @@ header {
     display: grid;
     grid-template-areas: 'navMenu logo enter'
     '. . .'
-    'buttonGold buttonGold buttonGold'
-    'buttonCasting buttonCasting buttonCasting';
+    'firstButtons firstButtons firstButtons'
+    'firstButtons firstButtons firstButtons';
     justify-content: space-between;
     align-content: center;
     row-gap: 0.5rem;
 }
+
+.firstButtons {
+    grid-area: firstButtons;
+    display:flex;
+    row-gap: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 
 .st0 {
     fill:none;
@@ -104,7 +114,7 @@ header {
 
 .st1{
     fill:none;
-    stroke:(var(--dark-grey));
+    stroke:var(--dark-grey);
     stroke-miterlimit:10;
 }
 
@@ -201,6 +211,9 @@ div.nav {
     flex-direction: column;
     justify-content: space-between;
 }
+nav >svg {
+    z-index: 2;
+}
 
 .buttons > a {
     margin: 5px 0;
@@ -257,8 +270,7 @@ form {
     'sex sex'
     'age age'
     'inputtext inputtext'
-    'morefilters search'
-    'morehide morehide';
+    'morefilters search';
 }
 
 
@@ -301,6 +313,7 @@ form {
     border-color: var(--green);
 }
 form>div.morefilters {
+    padding:10px;
     grid-area:morefilters;
     border-color: var(--green);
     padding:0;
@@ -312,7 +325,8 @@ form>div.morefilters {
 
 }
 
-form>div.morefilters svg{
+.morefilters svg{
+    padding-right:5px;
     align-self: center;
 }
 
@@ -323,18 +337,21 @@ form>div.morefilters svg{
 }
 
 .search{
-    padding-left:auto;
-    padding-right:auto;
     grid-area:search;
     max-height: 40px;
     flex:1;
 }
 .morefiltershide {
     display:none;
-    grid-area: morehide;
+    text-align: left;
+}
+
+.morefiltershide label {
+
 }
 
 .morefilters > svg {
+    padding-bottom: 0px;
     stroke-linejoin:round;
     stroke-width:2;
     stroke:var(--green);
@@ -380,7 +397,9 @@ input.search {
 
 input[type=radio],
 input[type=checkbox] {
-    display:none;
+
+    position:fixed;
+    left:-10000px;
 }
 
 label[for=variant2]{
@@ -418,7 +437,6 @@ label[for=variant2]{
 
 .banner picture {
     align-self: center;
-    z-index: 2;
 }
 
 
@@ -605,6 +623,11 @@ header {
     flex-wrap: wrap;
 }
 
+.firstButtons {
+    flex-direction: row;
+    column-gap: 10px;
+}
+
 nav {
     margin-top:20px;
     width: 75%;
@@ -649,8 +672,7 @@ nav > svg {
 form {
     grid-template-areas: 
     'casting sex inputtext inputtext'
-    'age morefilters search .'
-    'morehide morehide morehide morehide';
+    'age morefilters search .';
 }
 
 .inputtext {
@@ -694,6 +716,7 @@ form {
 }
 
 .text-banner {
+    align-self: center;
     width:40%;
 }
 
@@ -705,7 +728,7 @@ form {
     display: flex;
     position:absolute;
     left: 42%;
-    bottom: 20px;
+    bottom: 10px;
 }
 /*
 .banner-slider > svg {
@@ -777,8 +800,7 @@ header {
 /* ****************** start of filter ****************** */
 form {
     grid-template-areas: 
-    'casting sex inputtext inputtext age morefilters search'
-    '. . . . . morehide .';
+    'casting sex inputtext inputtext age morefilters search';
     padding: 0 140px;
 }
 

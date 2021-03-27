@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 //filter buttons
 const filterHide=[
@@ -13,7 +13,6 @@ filterHide.forEach(e=>toggleViewHover(e));
 function toggleViewHover(ar){
     document.querySelector(ar[0]).addEventListener('mouseover', ()=> {
 document.querySelector(ar[0]).style.maxHeight="100%";
-        document.querySelector(ar[0]).style.zIndex='11';
         document.querySelector(ar[1]).style.display='block';
     });
     document.querySelector(ar[0]).addEventListener('mouseout', ()=> {
@@ -113,22 +112,27 @@ function castingMoveRight(){
 
 let trackXDown;
 
-document.querySelector('.casting').addEventListener('mousedown', downMeasure);
-document.querySelector('.casting').addEventListener('mouseup', castingMove);
+document.querySelector('.casting').addEventListener('mousedown', e => downMeasure(e.clientX));
+document.querySelector('.casting').addEventListener('mouseup', e => castingMove(e.clientX));
 
-function downMeasure(e){
-    trackXDown = e.clientX;
+
+document.querySelector('.casting').addEventListener('touchstart', e => console.log("start", e.touches[0].clientX));
+document.querySelector('.casting').addEventListener('touchend', e => console.log("end", e.changedTouches[0].clientX));
+
+document.querySelector('.casting').addEventListener('touchstart', e => downMeasure(e.touches[0].clientX) );
+document.querySelector('.casting').addEventListener('touchend', e => castingMove(e.changedTouches[0].clientX));
+
+
+function downMeasure(x){
+    trackXDown = x;
 }
 
 function castingMove(e){
-    let xDown = e.clientX;
-
-    //console.log(trackXDown, xDown, Math.abs(trackXDown-xDown)>120, trackXDown>xDown ? "castingMoveRight" : "castingMoveLeft");
+    let xDown = e;
     if (Math.abs(trackXDown-xDown)>120){
         let count = Math.ceil(Math.abs((trackXDown-xDown)/140));
         let callback = trackXDown>xDown ? castingMoveLeft : castingMoveRight;
         for (let i = 0; i <count; i++){
-               // console.log('move!');
                 callback();
         }
     }
@@ -164,20 +168,26 @@ function findContainerCheckbox(e){
 
 function checkForCheck(container){
     container[3].checked ? container[1].childNodes[3].style.stroke = "#68CBB3" : container[1].childNodes[3].style.stroke = null;
+    //container[3].checked ? container[1].childNodes[1].style.stroke = "#68CBB3" : container[1].childNodes[1].style.stroke = '#E0E0E0';
+
 }
 
 function checkboxIn(e){
     checkboxHover(e, '#68CBB3');
+
 }
 
 function checkboxOut(e){
-    checkboxHover(e, '#E0E0E0');
+        checkboxHover(e, '#E0E0E0');
 }
 
 function checkboxHover(e,color){
     let container = findContainerCheckbox(e);
+    if(color !== '#E0E0E0' || !container[3].checked){
         container[1].childNodes[1].style.stroke = color;
-        checkForCheck(container);
+    }
+
+        //checkForCheck(container);
 }
 
 

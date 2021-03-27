@@ -15,8 +15,11 @@
             <source media="(min-width:768px)" srcset="./media/artcastinglogo-medium.png">
             <img src="./media/artcastinglogo-small.png" alt="логотип ArtCasting">
         </picture>
-        <a href="#" class="button button-gold">КУПИТЬ GOLD АККАУНТ</a>
-        <a href="#" class="button button-casting">СОЗДАТЬ КАСТИНГ/ОБЪЯВЛЕНИЕ</a>
+        <div class="firstButtons">
+            <a href="#" class="button button-gold">КУПИТЬ GOLD АККАУНТ</a>
+            <a href="#" class="button button-casting">СОЗДАТЬ КАСТИНГ/ОБЪЯВЛЕНИЕ</a>
+        </div>
+
         <a href="#" class="enter"><span>ВХОД / РЕГИСТРАЦИЯ</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17">
                 <ellipse class="st0" cx="7" cy="17" rx="6" ry="6"/>
@@ -230,11 +233,12 @@
                 </svg>
 
                 <div class="agefilterhide">
+                    <br>
                     <p>Возраст</p>
-                    <label for="age">от</label>
-                    <input type="range" name="age" id="age" min="18" max="120" step="1" value="agemin">
-                    <label for="age">до</label>
-                    <input type="range" name="age" id="age" min="18" max="120" step="1" value="agemax">
+                    <label for="agemin">от</label>
+                    <input type="range" name="agemin" id="agemin" min="18" max="120" step="1" value="18">
+                    <label for="agemax">до</label>
+                    <input type="range" name="agemax" id="agemax" min="18" max="120" step="1" value="120">
 
                 </div>
 
@@ -252,14 +256,14 @@
                 </svg>
                 <p>ЕЩЕ ФИЛЬТРЫ</p>
                 <div class="morefiltershide">
-                
+                    <br>
                     <p>Гонорар:</p>
-                    <label for="speed">от</label><br>
-                    <input type="range" name="price1" id="price1" min="1000" max="100000" step="1000" value="pricemin">
-                    <label for="speed">до</label><br>
-                    <input type="range" name="price2" id="price2" min="1000" max="100000" step="1000" value="pricemax">
+                    <label for="price1">от</label>
+                    <input type="range" name="price1" id="price1" min="1000" max="100000" step="1000" value="1000">
+                    <label for="price2">до</label>
+                    <input type="range" name="price2" id="price2" min="1000" max="100000" step="1000" value="100000"><br>
     
-    
+                    <br>
                     <p>Владение языками:</p>
                     <div class="checkbox">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -351,18 +355,19 @@
                         <label for="language10">французский язык</label><br>
                     </div>
     
-    
+                    <br>
                     <p>Рост:</p>
-                    <label for="height">от</label>
-                    <input type="range" name="height1" id="height1" min="60" max="250" step="0.5" value="heightmin">
-                    <label for="height">до</label>
-                    <input type="range" name="height2" id="height2" min="60" max="250" step="0.5" value="heightmax">
+                    <label for="height1">от</label>
+                    <input type="range" name="height1" id="height1" min="60" max="250" step="0.5" value="60">
+                    <label for="height2">до</label>
+                    <input type="range" name="height2" id="height2" min="60" max="250" step="0.5" value="250"><br>
                     
+                    <br>
                     <p>Вес:</p>
-                    <label for="weight">от</label><br>
-                    <input type="range" name="weight1" id="weight1" min="25" max="300" step="5" value="weightmin">
-                    <label for="weight">до</label><br>
-                    <input type="range" name="weight2" id="weight2" min="25" max="300" step="5" value="weightmax">
+                    <label for="weight1">от</label>
+                    <input type="range" name="weight1" id="weight1" min="25" max="300" step="5" value="25">
+                    <label for="weight2">до</label>
+                    <input type="range" name="weight2" id="weight2" min="25" max="300" step="5" value="300"><br>
     
     
     
@@ -519,7 +524,7 @@
                     <path d="M18.5 25l5-5 -5-5" style="fill:none;stroke-linejoin:round;stroke-width:2;stroke:#68CBB3"/>
                 </svg>
             </div>
-
+        </div>
     </main>
     <script src="./main.js"></script>
 </body>
